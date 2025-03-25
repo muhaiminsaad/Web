@@ -1,20 +1,35 @@
 #include <stdio.h>
-void decompose_banknotes(int N) {
-printf("%d\n", N);
-int banknotes[] = {100, 50, 20, 10, 5, 2, 1};
-int count, i; 
-    for (i = 0; i < 7; i++) {
-        count = N / banknotes[i];
-        printf("%d nota(s) de R$ %d,00\n", count, banknotes[i]);
-        N %= banknotes[i];
-    }
-}
 
 int main() {
-    int N;
+    int N, count;
     scanf("%d", &N);
-    if (N > 0 && N < 1000000) {
-        decompose_banknotes(N);
-    }
+    printf("%d\n", N);
+    
+    count = N / 100;
+    printf("%d nota(s) de R$ 100,00\n", count);
+    N %= 100;
+    
+    count = N / 50;
+    printf("%d nota(s) de R$ 50,00\n", count);
+    N %= 50;
+    
+    count = N / 20;
+    printf("%d nota(s) de R$ 20,00\n", count);
+    N %= 20;
+    
+    count = N / 10;
+    printf("%d nota(s) de R$ 10,00\n", count);
+    N %= 10;
+    
+    count = N / 5;
+    printf("%d nota(s) de R$ 5,00\n", count);
+    N %= 5;
+    
+    count = N / 2;
+    printf("%d nota(s) de R$ 2,00\n", count);
+    N %= 2;
+    
+    printf("%d nota(s) de R$ 1,00\n", N);
+    
     return 0;
 }
